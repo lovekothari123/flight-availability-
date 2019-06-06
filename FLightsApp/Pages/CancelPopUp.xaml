@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+     xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.forms"
+    x:Class="FLightsApp.Pages.CancelPopUp">
+    <Frame
+        HeightRequest="400"
+        Margin="4"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="CenterAndExpand"
+        BackgroundColor="White"
+        CornerRadius="4"
+        Padding="0">
+        <StackLayout
+            Orientation="Vertical"
+            Margin="5">
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand">
+                <Label
+                    Text="Booked Ticket details"
+                    TextColor="Red"
+                    FontSize="Small"
+                    FontAttributes="Bold"
+                    HorizontalOptions="StartAndExpand">
+                </Label>
+                <Image
+                    Source="cross.png"
+                    HeightRequest="20"
+                    x:Name="close"
+                    WidthRequest="20"
+                    HorizontalOptions="EndAndExpand">
+                </Image>
+            </StackLayout>
+            <BoxView
+                HorizontalOptions="FillAndExpand"
+                HeightRequest="1"
+                Color="Gray" />
+            <StackLayout
+                Orientation="Horizontal"
+                HorizontalOptions="FillAndExpand">
+                <StackLayout
+                    Orientation="Vertical"
+                    HorizontalOptions="StartAndExpand">
+                    <Label
+                        Text="Ref No"
+                        TextColor="Black"
+                        FontSize="Micro"
+                        FontAttributes="Bold">
+                    </Label>
+                    <Frame
+
+                        CornerRadius="2"
+                        BorderColor="Gray"
+                        WidthRequest="70"
+                        Padding="0">
+                        <Label
+                            Margin="5"
+                            x:Name="refno"
+                            TextColor="Black"
+                            FontSize="Micro" />
+                    </Frame>
+                </StackLayout>
+                <StackLayout
+                    Orientation="Vertical"
+                    HorizontalOptions="EndAndExpand">
+                    <Label
+                       
+                        Text="Airline PNR"
+                        TextColor="Black"
+                        FontSize="Micro"
+                        FontAttributes="Bold">
+                    </Label>
+                    <Frame
+                        CornerRadius="2"
+                        BorderColor="Gray"
+                        WidthRequest="70"
+                        Padding="0">
+                        <Label
+                            Margin="5"
+                            x:Name="airlinepnr"
+                            TextColor="Black"
+                            FontSize="Micro" />
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <Label Margin="5" Text="Please select the user you want to cancel ticket for !!" TextColor="Red" FontSize="Micro" HorizontalOptions="CenterAndExpand"/>
+            <Frame
+                Margin="5"
+                HorizontalOptions="FillAndExpand"
+                BorderColor="White"
+                CornerRadius="0"
+                Padding="0">
+                <StackLayout
+                    Orientation="Vertical"
+                    HorizontalOptions="FillAndExpand">
+                    <Grid
+                        HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                           
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="33">
+                            </RowDefinition>
+                        </Grid.RowDefinitions>
+                       
+                        <Frame
+                            Margin="-5,0,-5,0"
+                            BorderColor="Silver"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Padding="0"
+                            CornerRadius="0">
+                            <Label
+                                Margin="2"
+                                HorizontalOptions="Center"
+                                Text="First Name  "
+                                FontSize="11"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </Frame>
+                        <Frame
+                            Margin="-5,0,-5,0"
+                            BorderColor="Silver"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Padding="0"
+                            CornerRadius="0">
+                            <Label
+                                Margin="2"
+                                HorizontalOptions="Center"
+                                Text="Last Name"
+                                FontSize="11"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </Frame>
+                        <Frame
+                            Margin="-5,0,-5,0"
+                            BorderColor="Silver"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Padding="0"
+                            CornerRadius="0">
+                            <Label
+                                Margin="2"
+                                HorizontalOptions="Center"
+                                Text="Passenger Type"
+                                FontSize="11"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </Frame>
+                        <Frame
+                            Margin="-5,0,-5,0"
+                            BorderColor="Silver"
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            Padding="0"
+                            CornerRadius="0">
+                            <Label
+                                Margin="2"
+                                HorizontalOptions="Center"
+                                Text="Ticket Status"
+                                FontSize="11"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </Frame>
+                        <Frame
+                            Margin="-5,0,-5,0"
+                            BorderColor="Silver"
+                            Grid.Row="0"
+                            Grid.Column="4"
+                            Padding="0"
+                            CornerRadius="0">
+                            <Label
+                                Margin="2"
+                                HorizontalOptions="Center"
+                                Text="Ticket No."
+                                FontSize="11"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </Frame>
+                    </Grid>
+                    <Frame
+                        Margin="0,-5,0,0"
+                        BorderColor="White"
+                        CornerRadius="0"
+                        HorizontalOptions="FillAndExpand"
+                        Padding="0">
+                        <ListView
+                            HorizontalOptions="FillAndExpand"
+                            x:Name="passengerlist"
+                            SelectionMode="None"
+                            HasUnevenRows="true"
+                            SeparatorColor="Transparent">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid
+                                            Margin="0,-1.5,0,0"
+                                            HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition
+                                                    Width="*">
+                                                </ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*">
+                                                </ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*">
+                                                </ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*">
+                                                </ColumnDefinition>
+                                                <ColumnDefinition
+                                                    Width="*">
+                                                </ColumnDefinition>
+
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition
+                                                    Height="*">
+                                                </RowDefinition>
+                                            </Grid.RowDefinitions>
+                                         
+                                            <Frame
+                                                BorderColor="Silver"
+                                                Margin="0,0,-5,0"
+                                                Grid.Column="0"
+                                                Padding="0"
+                                                CornerRadius="0">
+                                                <controls:CheckBox FontSize="10" CheckedChanged="Handle_PropertyChanged" Checked="false"  DefaultText="{Binding FirstName}"/>
+                                               
+                                            </Frame>
+                                            <Frame
+                                                Margin="-5,0,-5,0"
+                                                BorderColor="Silver"
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                Padding="0"
+                                                CornerRadius="0">
+                                                <Label
+                                                    Margin="2"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding LastName}"
+                                                    FontSize="11"
+                                                    TextColor="Black" />
+                                            </Frame>
+                                            <Frame
+                                                Margin="-5,0,-5,0"
+                                                BorderColor="Silver"
+                                              
+                                                Grid.Row="0"
+                                                Grid.Column="2"
+                                                Padding="0"
+                                                CornerRadius="0">
+                                                <Label
+                                                    Margin="2"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding PassengerType}"
+                                                    FontSize="11"
+                                                    TextColor="Black" />
+                                            </Frame>
+                                            <Frame
+                                                Margin="-5,0,-5,0"
+                                                BorderColor="Silver"
+                                                Grid.Row="0"
+                                                Grid.Column="3"
+                                                Padding="0"
+                                                CornerRadius="0">
+                                                <Label
+                                                    Margin="2"
+                                                    HorizontalOptions="Center"
+                                                    Text="Pending"
+                                                      VerticalOptions="Center"
+                                                    FontSize="11"
+                                                    TextColor="Black" />
+                                            </Frame>
+                                            <Frame
+                                                Margin="-5,0,0,0"
+                                                BorderColor="Silver"
+                                                Grid.Row="0"
+                                                Grid.Column="4"
+                                                Padding="0"
+                                                CornerRadius="0">
+                                                <Label
+                                                    Text="10"
+                                                    HorizontalOptions="Center"
+                                                    VerticalOptions="Center"
+                                                    FontSize="11"
+                                                    TextColor="Black" />
+                                            </Frame>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+            <Button Text="Cancel Ticket" Clicked="Cancel_Clicked" TextColor="White" FontSize="Micro" FontAttributes="Bold" BackgroundColor="Red" HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </Frame>
+</pages:PopupPage>

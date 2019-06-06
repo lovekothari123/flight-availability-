@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.forms"
+    x:Class="FLightsApp.Pages.FilterByPage">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="White" Orientation="Vertical" HeightRequest="500" WidthRequest="300">
+        <ScrollView><StackLayout Margin="5" Orientation="Vertical">
+        <Label Margin="5" Text="Filter By Airline" FontSize="Small" FontAttributes="Bold" TextColor="Red" HorizontalOptions="StartAndExpand"/>
+    <ListView x:Name="flightfilters" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                  <controls:CheckBox  x:Name="jetairway" DefaultText= "{Binding AirlineName}"  CheckedChanged="Handle_PropertyChanged"
+                            Checked="false"  />
+                            </ViewCell>
+                        </DataTemplate>
+                </ListView.ItemTemplate> 
+                </ListView>
+           
+        <Label Margin="5" Text="Filter By Stops" FontSize="Small" FontAttributes="Bold" TextColor="Red" HorizontalOptions="StartAndExpand"/>
+          <ListView x:Name="stopfilterslist" SelectionMode="None">
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <ViewCell>
+                                    <controls:CheckBox   CheckedChanged="Handle_PropertyChanged1" DefaultText= "{Binding Stops}"
+                            Checked="false"  />
+                            </ViewCell>
+                        </DataTemplate>
+                </ListView.ItemTemplate> 
+                </ListView>
+           
+                
+       <Label Margin="10" Text="Done" x:Name="done" FontSize="Medium" TextColor="Red" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"/>
+           </StackLayout>
+       </ScrollView>
+        </StackLayout>
+</pages:PopupPage>

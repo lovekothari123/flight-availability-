@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    x:Class="FLightsApp.Pages.MorePopUpPage">
+<StackLayout BackgroundColor="White" HeightRequest="250" WidthRequest="300" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <StackLayout Margin="10" Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <Label Text="Booking History" x:Name="gethistory" TextColor="Red" FontSize="Large" HorizontalOptions="CenterAndExpand">
+            </Label>
+            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" Color="Gray">
+            </BoxView>
+             <Label x:Name="logout" Text="Logout" TextColor="Red" FontSize="Large" HorizontalOptions="CenterAndExpand">
+            </Label>
+          <Image Source="cross.png" x:Name="close" HeightRequest="25" WidthRequest="25" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

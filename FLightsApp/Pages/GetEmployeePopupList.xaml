@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FLightsApp.Pages.GetEmployeePopupList" xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.forms">
+    <StackLayout Orientation="Vertical" BackgroundColor="#ebebeb" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="Red" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+            <Image Margin="10,20,0,10" x:Name="back" Source="backwhite.png" HorizontalOptions="Start" VerticalOptions="Center" />
+        </StackLayout>
+        <ListView SeparatorVisibility="Default" Margin="5" BackgroundColor="#ebebeb" RowHeight="50" SeparatorColor="Gray" ItemSelected="itemselected" x:Name="getEmpList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame HasShadow="true" BackgroundColor="#ebebeb" CornerRadius="3" Margin="4" Padding="0" HorizontalOptions="FillAndExpand">
+                            <StackLayout BackgroundColor="#ebebeb" Margin="2" HorizontalOptions="FillAndExpand" Orientation="Vertical">
+                                <StackLayout
+                                    Orientation="Horizontal">
+                                     <Label Text="{ Binding FirstName }" HorizontalOptions="Center"  TextColor="Teal" VerticalOptions="StartAndExpand">
+                                </Label>
+                                <Label Text="{Binding LastName}" HorizontalOptions="Center" VerticalOptions="StartAndExpand" TextColor="Teal">
+                                </Label>
+                                    
+                                </StackLayout>
+                               
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    <!-- <ListView x:Name="getEmpList" HasUnevenRows="true" >
+
+
+        <ListView.ItemTemplate>
+
+
+        <DataTemplate>
+
+        <ViewCell>
+
+
+
+
+
+        <StackLayout Orientation="Vertical">
+
+      
+
+                        
+                    </StackLayout>
+
+
+                    
+                </ViewCell>
+
+
+                
+            </DataTemplate>
+            
+        </ListView.ItemTemplate>
+
+
+
+        
+    </ListView>
+    -->
+</pages:PopupPage>

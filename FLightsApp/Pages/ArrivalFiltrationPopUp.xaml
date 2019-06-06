@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.forms"
+    x:Class="FLightsApp.Pages.ArrivalFiltrationPopUp">
+    <StackLayout
+        Orientation="Vertical"
+        BackgroundColor="#ebebeb"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <StackLayout
+            BackgroundColor="Red"
+            Orientation="Horizontal"
+            HorizontalOptions="FillAndExpand">
+            <Image
+                Margin="10,20,0,10"
+                x:Name="back"
+                Source="backwhite.png"
+                HorizontalOptions="Start"
+                VerticalOptions="Center" />
+            <StackLayout
+                Margin="0,20,0,20"
+                VerticalOptions="Center"
+                Orientation="Vertical"
+                HorizontalOptions="FillAndExpand">
+                <Entry
+                    PlaceholderColor="White"
+                    Placeholder="Search here by City..."
+                    VerticalOptions="Center"
+                    x:Name="fromentry"
+                    HorizontalOptions="FillAndExpand"
+                    TextChanged="Handle_TextChanged"
+                    TextColor="White"
+                    FontAttributes="None"
+                    FontSize="Small" />
+                <BoxView
+                    Color="White"
+                    HorizontalOptions="FillAndExpand"
+                    HeightRequest="1.5"
+                    Margin="0,-15,0,0" />
+            </StackLayout>
+            <Label
+                x:Name="clear"
+                VerticalOptions="Center"
+                Margin="0,20,10,10"
+                Text="X"
+                FontAttributes="Bold"
+                FontSize="Medium"
+                TextColor="White" />
+        </StackLayout>
+        <ListView
+            SeparatorVisibility="Default"
+            Margin="5"
+            BackgroundColor="#ebebeb"
+            RowHeight="50"
+            SeparatorColor="Gray"
+            ItemSelected="itemselected"
+            x:Name="filteritems">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            HasShadow="true"
+                            BackgroundColor="#ebebeb"
+                            CornerRadius="3"
+                            Margin="4"
+                            Padding="0"
+                            HorizontalOptions="FillAndExpand">
+                            <StackLayout
+                                BackgroundColor="#ebebeb"
+                                Margin="2"
+                                HorizontalOptions="FillAndExpand"
+                                Orientation="Horizontal">
+                                <Label
+                                    VerticalOptions="Center"
+                                    x:Name="fromentryfullName"
+                                    Text="{Binding AirportName}"
+                                    BackgroundColor="Transparent"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    FontSize="Small" />
+                                <Label
+                                    VerticalOptions="Center"
+                                    Margin="3,0,0,0"
+                                    x:Name="fromentryShortName"
+                                    Text="{Binding AirportCode}"
+                                    BackgroundColor="Transparent"
+                                    TextColor="Gray"
+                                    FontAttributes="Bold"
+                                    FontSize="Small" />
+                                <Label
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="EndAndExpand"
+                                    Text="{Binding CountryName}"
+                                    FontSize="Micro"
+                                    TextColor="Teal" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</pages:PopupPage>

@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.forms"
+    x:Class="FLightsApp.Pages.BookNowPage"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical">
+            <StackLayout
+                Orientation="Horizontal"
+                BackgroundColor="Red">
+                <Image
+                    x:Name="backarrow"
+                    Source="backwhite.png"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center">
+                </Image>
+                <StackLayout
+                    Orientation="Vertical"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center">
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="CenterAndExpand">
+                        <Label
+                            x:Name="from"
+                            TextColor="White"
+                            FontSize="Small"
+                            VerticalOptions="Center"
+                            FontAttributes="Bold" />
+                        <Image
+                            VerticalOptions="Center"
+                            Source="frontarrow.png" />
+                        <Label
+                            VerticalOptions="Center"
+                            TextColor="White"
+                            x:Name="stop"
+                            IsVisible="false"
+                            FontSize="Small"
+                            FontAttributes="Bold" />
+                        <Image
+                            IsVisible="false"
+                            VerticalOptions="Center"
+                            Source="frontarrow.png" />
+                        <Label
+                            VerticalOptions="Center"
+                            x:Name="to"
+                            TextColor="White"
+                            FontSize="Small"
+                            FontAttributes="Bold" />
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand">
+                        <Image
+                            x:Name="flightimage"
+                            Margin="0,0,0,3"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Start" />
+                        <Label
+                            x:Name="flightcode"
+                            VerticalOptions="Center"
+                            TextColor="White"
+                            FontSize="Micro"
+                            HorizontalOptions="StartAndExpand" />
+                        <Label
+                            TextColor="White"
+                            VerticalOptions="Center"
+                            FontSize="Micro"
+                            Text="AIrlineName : "
+                            HorizontalOptions="Center" />
+                        <Label
+                            x:Name="flightclass"
+                            VerticalOptions="Center"
+                            TextColor="White"
+                            FontSize="Micro"
+                            HorizontalOptions="Center" />
+                        <Label
+                            VerticalOptions="Center"
+                            TextColor="White"
+                            FontSize="Micro"
+                            Text="FARE : "
+                            HorizontalOptions="EndAndExpand" />
+                        <Label
+                            VerticalOptions="Center"
+                            Margin="0,0,5,0"
+                            x:Name="fare"
+                            TextColor="Yellow"
+                            FontSize="Micro"
+                            HorizontalOptions="End" />
+                    </StackLayout>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout
+                Margin="-5"
+                Orientation="Horizontal"
+                BackgroundColor="#ebebeb">
+                <Label
+                    Margin="8,8,0,8"
+                    Text="DEPARTURE : "
+                    TextColor="Black"
+                    FontSize="Small"
+                    HorizontalOptions="Start" />
+                <Label
+                    Margin="0,8,0,8"
+                    x:Name="deptdate"
+                    TextColor="Gray"
+                    FontSize="13"
+                    HorizontalOptions="Start" />
+                <Label
+                    Margin="0,8,0,8"
+                    Text="ARRIVAL : "
+                    TextColor="Black"
+                    FontSize="Small"
+                    HorizontalOptions="EndAndExpand" />
+                <Label
+                    x:Name="arrdate"
+                    TextColor="Gray"
+                    Margin="0,8,8,8"
+                    FontSize="13"
+                    HorizontalOptions="End" />
+            </StackLayout>
+            <ScrollView>
+                <StackLayout
+                    Margin="5"
+                    Orientation="Vertical"
+                    HorizontalOptions="FillAndExpand">
+                    <ListView
+                        x:Name="pasengerlist"
+                        SelectionMode="None"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="White"
+                        HasUnevenRows="true">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell
+                                    x:Name="viewcell">
+                                    <StackLayout
+                                        Margin="5"
+                                        Orientation="Vertical"
+                                        VerticalOptions="FillAndExpand"
+                                        HorizontalOptions="FillAndExpand">
+                                        <Label
+                                            Text="{Binding PaxNo}"
+                                            TextColor="Red"
+                                            FontSize="Micro" />
+                                        <StackLayout
+                                            Margin="10"
+                                            Orientation="Horizontal"
+
+                                            VerticalOptions="CenterAndExpand">
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="StartAndExpand">
+                                                <Label
+                                                    Text="FIRST NAME"
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    BorderColor="Gray"
+                                                    CornerRadius="0"
+                                                    Padding="0"
+                                                    HasShadow="false">
+                                                    <Label
+                                                        x:Name="fromname"
+                                                        Text="{Binding FirstName}"
+                                                        BackgroundColor="Transparent"
+                                                        Margin="5"
+                                                        FontSize="Micro"
+                                                        TextColor="Black" />
+                                                </Frame>
+                                            </StackLayout>
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="CenterAndExpand">
+                                                <Label
+                                                    Text="LAST NAME"
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    BorderColor="Gray"
+                                                    HasShadow="false"
+                                                    Padding="0"
+                                                    CornerRadius="0">
+                                                    <Label
+                                                        x:Name="lastname"
+                                                        Text="{Binding LastName}"
+                                                        BackgroundColor="Transparent"
+                                                        Margin="5"
+                                                        FontSize="Micro"
+                                                        TextColor="Black" />
+                                                </Frame>
+                                            </StackLayout>
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="EndAndExpand">
+                                                <Label
+                                                    Text="GENDER"
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    HasShadow="false"
+                                                    BorderColor="Gray"
+                                                    Padding="0"
+                                                    CornerRadius="0">
+                                                    <Label
+                                                        Text="{Binding Gender}"
+                                                        Margin="5"
+                                                        TextColor="Black"
+                                                        FontSize="Micro" />
+                                                </Frame>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <BoxView
+                                            Color="Silver"
+                                            HeightRequest="1"
+                                            HorizontalOptions="FillAndExpand" />
+
+
+                                            <!--insertcode-->
+                                             <StackLayout
+                                            Margin="10"
+                                            Orientation="Horizontal"
+                                            VerticalOptions="Center">
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="StartAndExpand">
+                                                <Label
+                                                    Text="EMAIL ID"
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    BorderColor="Gray"
+                                                    CornerRadius="0"
+                                                    Padding="0"
+                                                    HasShadow="false">
+                                                    <Label
+                                                        x:Name="fromemail"
+                                                        Text="{Binding EmailId}"
+                                                        BackgroundColor="Transparent"
+                                                        Margin="5"
+                                                        FontSize="Micro"
+                                                        TextColor="Black" />
+                                                </Frame>
+                                            </StackLayout>
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="CenterAndExpand">
+                                                <Label
+                                                    Text="MOBILE NO"
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    BorderColor="Gray"
+                                                    HasShadow="false"
+                                                    Padding="0"
+                                                    CornerRadius="0">
+                                                    <Label
+                                                        x:Name="phonenumber"
+                                                        Text="{Binding MobileNo}"
+                                                        BackgroundColor="Transparent"
+                                                        Margin="5"
+                                                        FontSize="Micro"
+                                                        TextColor="Black" />
+                                                </Frame>
+                                            </StackLayout>
+                                           
+                                        </StackLayout>
+                                        <BoxView
+                                            Color="Silver"
+                                            HeightRequest="1"
+                                            HorizontalOptions="FillAndExpand" />
+                                        <!--// end -->
+                                        <StackLayout
+                                            Margin="10"
+                                            Orientation="Horizontal"
+                                            VerticalOptions="Center">
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="StartAndExpand">
+                                                <Label
+                                                    Text="MEAL AMOUNT : "
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    IsVisible="{Binding additonalservicevisibility1}"
+                                                    BorderColor="Gray"
+                                                    HasShadow="false"
+                                                    Padding="0"
+                                                    CornerRadius="0">
+                                                    <Picker
+                                                        x:Name="meals"
+                                                        BackgroundColor="Transparent"
+                                                        Title="Select Here"
+                                                        SelectedIndexChanged="Handle_PickerChanged"
+                                                        ItemsSource="{Binding AdditionalServiceSelect.MealValueLst}"
+                                                        ItemDisplayBinding="{Binding MealServiceName}"
+                                                        FontSize="Micro"
+                                                        TextColor="Black">
+                                                    </Picker>
+                                                </Frame>
+                                                <Label
+                                                    IsVisible="{Binding additonalservicevisibility2}"
+                                                    Text="Meals not Available!"
+                                                    FontSize="Micro"
+                                                    TextColor="Black" />
+                                            </StackLayout>
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="EndAndExpand">
+                                                <Label
+                                                    Text="BAGGAGE AMOUNT : "
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    IsVisible="{Binding additonalservicevisibility1}"
+                                                    BorderColor="Gray"
+                                                    CornerRadius="0"
+                                                    Padding="0"
+                                                    HasShadow="false">
+                                                    <Picker
+                                                        x:Name="baggage"
+                                                        ItemsSource="{Binding AdditionalServiceSelect.BaggageValueLst}"
+                                                        BackgroundColor="Transparent"
+                                                        ItemDisplayBinding="{Binding BaggageServiceName}"
+                                                        SelectedIndexChanged="Handle_BagPickerChanged"
+                                                        Title="Select Here"
+                                                        FontSize="Micro"
+                                                        TextColor="Black">
+                                                    </Picker>
+                                                </Frame>
+                                                <Label
+                                                    IsVisible="{Binding additonalservicevisibility2}"
+                                                    Text="Baggage not Available!"
+                                                    FontSize="Micro"
+                                                    TextColor="Black" />
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout
+                                            IsVisible="false"
+                                            Orientation="Horizontal"
+                                            HorizontalOptions="StartAndExpand">
+                                            <Label
+                                                x:Name="totalamountMB"
+                                                Text="TOTAL AMOUNT : "
+                                                TextColor="Black"
+                                                FontSize="Small"
+                                                FontAttributes="Bold"
+                                                Margin="10,0,0,0" />
+                                            <Label
+                                                Text="{Binding TotalAmount}"
+                                                TextColor="Black"
+                                                FontSize="Small"
+                                                FontAttributes="Bold"
+                                                Margin="10,0,0,0" />
+                                        </StackLayout>
+                                        <BoxView
+                                            Color="Silver"
+                                            HeightRequest="1"
+                                            HorizontalOptions="FillAndExpand" />
+                                        <StackLayout
+                                            Margin="10"
+                                            Orientation="Horizontal"
+                                            VerticalOptions="Center">
+                                            <StackLayout
+                                                Orientation="Vertical"
+                                                HorizontalOptions="StartAndExpand">
+                                                <Label
+                                                    Text="AIRLINE NAME"
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    HasShadow="false"
+                                                    BorderColor="Gray"
+                                                    CornerRadius="0"
+                                                    Padding="0">
+                                                    <Label
+                                                        Text="{Binding Airname}"
+                                                        BackgroundColor="Transparent"
+                                                        Margin="5"
+                                                        FontSize="Micro"
+                                                        TextColor="Black" />
+                                                </Frame>
+                                            </StackLayout>
+                                             <StackLayout
+                                                IsVisible="true"
+                                                Orientation="Vertical"
+                                                HorizontalOptions="EndAndExpand">
+                                                <Label
+                                                    Text="FREQUENT FLYER NO."
+                                                    TextColor="Gray"
+                                                    FontSize="Micro" />
+                                                <Frame
+                                                    BackgroundColor="White"
+                                                    BorderColor="Gray"
+                                                    HasShadow="false"
+                                                    Padding="0"
+                                                    CornerRadius="0">
+                                                    <Label
+                                                        BackgroundColor="Transparent"
+                                                        FontSize="Micro"
+                                                        Margin="5"
+                                                        TextColor="Black" />
+                                                </Frame>
+                                            </StackLayout>
+                                            <StackLayout
+                                                 VerticalOptions="Center"
+                                                HorizontalOptions="EndAndExpand">
+                                                <Label
+                                                    Text="Get Employee"
+                                                    IsVisible="{Binding GetPasssengerVisibility}"
+                                                    VerticalOptions="Center"
+                                                    TextColor="Green"
+                                                    FontAttributes="Bold"
+                                                    FontSize="Small"
+                                                    HorizontalOptions="EndAndExpand" />
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer
+                                                        Tapped="Ondetaillabeltapped"
+                                                        NumberOfTapsRequired="1" />
+                                                </Label.GestureRecognizers>
+                                            </StackLayout>
+                                           
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Label Text="Failed to Load Passenger details!!" TextColor="Gray" FontSize="Default" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"
+                           Margin="10" x:Name="dnf" IsVisible="false"/>
+                    <BoxView
+                        Color="Silver"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                    <Label
+                        Margin="10,0,0,0"
+                        Text="NOTE :"
+                        TextColor="Red"
+                        FontSize="Small"
+                        FontAttributes="Bold" />
+                    <Label
+                        Margin="10,0,0,0"
+                        Text="• RECONFIRM THE NAME AND SPELLING BEFORE CONFIRMING"
+                        TextColor="Red"
+                        FontSize="Micro" />
+                    <Label
+                        Margin="10,0,0,0"
+                        Text="• NAME CHANGES ARE NOT PERMITTED ONCE THE TICKET IS ISSUED"
+                        TextColor="Red"
+                        FontSize="Micro" />
+                    <Label
+                        Margin="10,0,0,0"
+                        Text="• PRIME HOLIDDAY'S IS NOT RESPONSIBLE, IN CASE PASSENGER GET DEPARTED DUE TO SAME FIRST AND LAST NAME"
+                        TextColor="Red"
+                        FontSize="Micro" />
+                    <BoxView
+                        Color="Silver"
+                        HeightRequest="1"
+                        HorizontalOptions="FillAndExpand" />
+                    <Label
+                        Margin="0,0,10,0"
+                        HorizontalOptions="EndAndExpand"
+                        x:Name="totalticketamount"
+                        Text="Total Ticket Amount : "
+                        TextColor="Black"
+                        FontSize="Small"
+                        FontAttributes="Bold" />
+                    <Label
+                        Margin="0,0,10,0"
+                        HorizontalOptions="EndAndExpand"
+                        x:Name="mealsAmount"
+                        Text="Total Meals Amount :"
+                        TextColor="Black"
+                        FontSize="Micro" />
+                    <Label
+                        Margin="0,0,10,0"
+                        x:Name="baggageAmount"
+                        HorizontalOptions="EndAndExpand"
+                        Text="Total Baggage Amount : "
+                        TextColor="Black"
+                        FontSize="Micro" />
+                    <Label
+                        Margin="0,0,10,0"
+                        x:Name="wholetotalamount"
+                        HorizontalOptions="EndAndExpand"
+                        Text="Total Amount :"
+                        TextColor="Black"
+                        FontSize="Micro" />
+                    <StackLayout
+                        Margin="5,10,0,0"
+                        Orientation="Horizontal"
+                        HorizontalOptions="CenterAndExpand">
+                        <controls:CheckBox
+                            x:Name="terms"
+                            Checked="false" />
+                        <Label
+                            VerticalOptions="Center"
+                            LineBreakMode="WordWrap">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span
+                                        Text="I understand and agree to the Prime Travel andTours Pvt Ltd"
+                                        TextColor="Black"
+                                        FontSize="Micro" />
+                                    <Span
+                                        Text=" terms and conditions"
+                                        TextColor="Blue"
+                                        FontSize="Micro">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="CenterAndExpand">
+                        <Button
+                            Margin="0,10,0,20"
+                            Clicked="History_Clicked"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="History"
+                            BackgroundColor="Green"
+                            CornerRadius="0"
+                            TextColor="White"
+                            FontSize="13"
+                            FontAttributes="Bold" />
+                        <Button
+                            Margin="0,10,0,20"
+                            Clicked="Confirm_Clicked"
+                            HorizontalOptions="CenterAndExpand"
+                            Text="Confirm"
+                            BackgroundColor="Red"
+                            CornerRadius="0"
+                            TextColor="White"
+                            FontSize="13"
+                            FontAttributes="Bold" />
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

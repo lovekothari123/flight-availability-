@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FLightsApp.Pages.BookingDetails"
+     NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+          <StackLayout
+            Orientation="Vertical"
+            Margin="-5"
+            BackgroundColor="White">
+            <StackLayout
+                Margin="5,0,5,0"
+                Orientation="Horizontal"
+                BackgroundColor="Red"
+                HeightRequest="60">
+                <Image
+                    x:Name="back"
+                    Source="backwhite.png"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center" />
+                 <Label
+                           Text="My Booking History"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="Center"
+                            TextColor="White" />
+                </StackLayout>
+                 
+        <StackLayout Margin="5" Orientation="Vertical" BackgroundColor="White" >
+
+            <ListView x:Name="history_list" SelectionMode="None"  HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                                <Frame CornerRadius="2" Margin="5" BackgroundColor="#f8f8f8" Padding="0" HasShadow="true">
+                                    
+                                
+                            <StackLayout Margin="5" Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="{Binding PassengerName}" FontSize="Micro" FontAttributes="Bold" TextColor="Black" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label Text="Ref No:" FontSize="Micro" TextColor="Gray" FontAttributes="Bold" HorizontalOptions="EndAndExpand"/>
+                                    <Label Text="{Binding RefNo}" FontSize="Micro" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"></Label>
+                                </StackLayout>
+                                 <StackLayout IsVisible="false" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="Gender:" FontSize="Micro" TextColor="Gray" FontAttributes="Bold" />
+                                    <Label Text="{Binding Gender}" FontSize="Micro" FontAttributes="Bold" TextColor="Black"></Label> 
+                                  
+                                </StackLayout>
+                                  <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                  <Image Source="{Binding IconPath}" VerticalOptions="Center"/>
+                                    <Label Text="{Binding AirlineCode}" VerticalOptions="Center" FontSize="Micro" FontAttributes="Bold" TextColor="Black" ></Label>
+                                    <Label Text="{Binding FromAirportName}" VerticalOptions="Center" FontSize="Micro" FontAttributes="Bold" TextColor="Black" HorizontalOptions="EndAndExpand"></Label>
+                                    <Image Source="Arrow_right.png" VerticalOptions="Center" HorizontalOptions="End"/>
+                                    <Label Text="{Binding ToAirportName}" VerticalOptions="Center" FontSize="Micro" FontAttributes="Bold" TextColor="Black" HorizontalOptions="End"></Label>
+                                </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="Total Ticket Amount:" FontSize="Micro" TextColor="Gray" FontAttributes="Bold" />
+                                    <Label Text="{Binding NetAmount}" FontSize="Micro" FontAttributes="Bold" TextColor="Black"></Label> 
+                                  
+                                </StackLayout>
+                                  <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="EndAndExpand">
+                                    <Label IsVisible="false" Text="{Binding RefNo}"   BackgroundColor="Transparent" FontSize="Small" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
+                                    <Label Text="View"  BackgroundColor="Transparent" FontSize="Small" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
+                                       <Label.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                        Tapped="Handle_Tapped"
+                                                    NumberOfTapsRequired="1" />
+                                                </Label.GestureRecognizers>   </StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                                    <Label IsVisible="false" Text="{Binding RefNo}"  BackgroundColor="Transparent" FontSize="Small" HorizontalOptions="Center" TextColor="Green" FontAttributes="Bold"/>
+                                    <Label Text="Cancel"  BackgroundColor="Transparent" FontSize="Small" HorizontalOptions="Center" TextColor="Red" FontAttributes="Bold"/>
+                                             <Label.GestureRecognizers>
+                                                <TapGestureRecognizer
+                                                    Tapped="OnframeTapped2"
+                                                    NumberOfTapsRequired="1" />
+                                                </Label.GestureRecognizers>
+                                   </StackLayout>
+                                    </StackLayout>
+                            </StackLayout>
+                                    </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+                </StackLayout>
+        </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,1432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.forms"
+    xmlns:custom="clr-namespace:FLightsApp.Pages;assembly=FLightsApp" 
+    xmlns:fv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+    x:Class="FLightsApp.Pages.MainTripPage"
+    NavigationPage.HasBackButton="False"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            Margin="-5"
+            BackgroundColor="White">
+            <StackLayout
+                Margin="5,0,5,0"
+                Orientation="Horizontal"
+                BackgroundColor="Red"
+                HeightRequest="60">
+                <Image
+                    Source="profile.png"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Start" />
+                <Label
+                    Text="Welcome : Admin"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Center"
+                    TextColor="White"
+                    x:Name="username"
+                    FontSize="Micro"
+                    FontAttributes="Bold" />
+                <Image
+                    x:Name="morepop"
+                    Source="more.png"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="Center" />
+            </StackLayout>
+            <Frame
+                HorizontalOptions="CenterAndExpand"
+                CornerRadius="3"
+                BackgroundColor="White"
+                BorderColor="#ebebeb"
+                Padding="0">
+                <StackLayout
+                    Margin="5"
+                    Orientation="Horizontal"
+                    HorizontalOptions="FillAndExpand">
+                    <Frame
+                        BorderColor="Transparent"
+                        BackgroundColor="Red"
+                        x:Name="oneway"
+                        CornerRadius="3"
+                        Padding="0">
+                        <StackLayout
+                            x:Name="onewaystack"
+                            Margin="4"
+                            Orientation="Horizontal">
+                            <Image
+                                VerticalOptions="Center"
+                                Source="right.png"
+                                x:Name="onewayimage" />
+                            <Label
+                                VerticalOptions="Center"
+                                x:Name="onewaytext"
+                                Text="ONE WAY"
+                                FontSize="Small"
+                                TextColor="White" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        BorderColor="Transparent"
+                        x:Name="roundtrip"
+                        CornerRadius="3"
+                        Padding="0">
+                        <StackLayout
+                            x:Name="roundstack"
+                            Margin="4"
+                            Orientation="Horizontal">
+                            <Image
+                                VerticalOptions="Center"
+                                IsVisible="false"
+                                Source="right.png"
+                                x:Name="roundimage" />
+                            <Label
+                                VerticalOptions="Center"
+                                x:Name="roundtext"
+                                Text="ROUND TRIP"
+                                FontSize="Small"
+                                TextColor="#ebebeb" />
+                        </StackLayout>
+                    </Frame>
+                    <Frame
+                        IsVisible="false"
+                        BorderColor="Transparent"
+                        x:Name="multicity"
+                        CornerRadius="3"
+                        Padding="0">
+                        <StackLayout
+                            x:Name="multistack"
+                            Margin="4"
+                            Orientation="Horizontal">
+                            <Image
+                                VerticalOptions="Center"
+                                IsVisible="false"
+                                Source="right.png"
+                                x:Name="multiimage" />
+                            <Label
+                                VerticalOptions="Center"
+                                x:Name="multitext"
+                                Text="MULTI-CITY"
+                                FontSize="Small"
+                                TextColor="#ebebeb" />
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Frame>
+            <ScrollView
+                Margin="15"
+                x:Name="onewaypage">
+                <StackLayout
+                    Orientation="Vertical">
+                    <Label
+                        Text="FROM"
+                        TextColor="Gray"
+                        FontSize="12" />
+                    <StackLayout
+                   x:Name="fromstack"
+                        HorizontalOptions="StartAndExpand"
+                        Orientation="Horizontal">
+                        <Label
+                            Text="Mumbai"
+                                 x:Name="fromentryfullName"
+                            BackgroundColor="Transparent"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                        <Label
+                            Margin="10,0,0,0"
+                            Text="BOM"
+                            x:Name="fromentryShortName"
+                            BackgroundColor="Transparent"
+                            TextColor="Gray"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                    </StackLayout>
+               <BoxView Margin="3"
+             Color="#ebebeb"
+             HeightRequest="1"
+             HorizontalOptions="FillAndExpand"/>
+          <Image x:Name="imageflip1" Source="flip.png" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" Margin="0,-25,10,0" 
+                 HeightRequest="30" WidthRequest="30">
+    <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="OnImageNameTapped1"
+                NumberOfTapsRequired="1"/>
+  </Image.GestureRecognizers>
+</Image>
+                    <Label
+                        Margin="0,0,0,0"
+                        Text="TO"
+                        TextColor="Gray"
+                        FontSize="12" />
+                    <StackLayout
+                        x:Name="tostack"
+                        HorizontalOptions="StartAndExpand"
+                        Orientation="Horizontal">
+                        <Label
+                            Text="Delhi"
+                            x:Name="TofullName"
+                            BackgroundColor="Transparent"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                        <Label
+                            Text="DEL"
+                            Margin="10,0,0,0"
+                            x:Name="ToShortName"
+                            BackgroundColor="Transparent"
+                            TextColor="Gray"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                    </StackLayout>
+                    <BoxView
+                        Margin="3"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="1"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="DEPARTURE DATE"
+                                FontSize="12"
+                                TextColor="Gray">
+                            </Label>
+                            <DatePicker
+                                WidthRequest="500"
+                                HeightRequest="800"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand"
+                                DateSelected="addNoteToDiary_DateSelected"
+                                Format="D"
+                              
+                                x:Name="datepicker"
+                                IsVisible="false" />
+                            <DatePicker
+                                WidthRequest="400"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand"
+                                DateSelected="addNoteToDiary_DateSelected"
+                                Format="D"
+                               
+                                x:Name="datepicker1"
+                                IsVisible="false" />
+                            <DatePicker
+                                DateSelected="addNoteToDiary_DateSelected2"
+                                Format="D"
+                               
+                                x:Name="datepicker2"
+                                IsVisible="false" />
+                            <StackLayout
+                                x:Name="labrl"
+                                IsVisible="true"
+                                Orientation="Horizontal">
+                                <Label
+                                    x:Name="date"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    TextColor="Black" />
+                                <StackLayout
+                                    Margin="-5,0,0,0"
+                                    VerticalOptions="Center"
+                                    Orientation="Vertical">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        VerticalOptions="Center">
+                                        <Label
+                                            x:Name="month"
+                                            VerticalOptions="Center"
+                                            TextColor="Gray"
+                                            FontSize="Micro" />
+                                        <Label
+                                            VerticalOptions="Center"
+                                            x:Name="year"
+                                            TextColor="Gray"
+                                            FontSize="Micro">
+                                        </Label>
+                                    </StackLayout>
+                                    <Label
+                                        x:Name="day"
+                                        Margin="0,-10,0,0"
+                                        FontSize="Micro"
+                                        TextColor="Silver" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout
+                            IsVisible="false"
+                            Orientation="Vertical"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="RETURN"
+                                FontSize="Micro"
+                                TextColor="Gray">
+                            </Label>
+                            <DatePicker
+                                TextColor="Black" />
+                            <Label
+                                IsVisible="false"
+                                WidthRequest="80"
+                                Text="Book Roundtrips for good returns"
+                                FontSize="Micro"
+                                TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView
+                        HeightRequest="1.5"
+                        Margin="3"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                Text="TRAVELLERS"
+                                FontSize="12"
+                                TextColor="Gray" />
+                            <Label
+                                x:Name="onewayadultcount"
+                                Text="01 Adult"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="EndAndExpand">
+                            <Label
+                                Text="CABIN CLASS"
+                                FontSize="12"
+                                TextColor="Gray" />
+                            <Label
+                                x:Name="onewaycabinclass"
+                                Text="Economy"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                  
+                    <BoxView
+                        HeightRequest="1.5"
+                        HorizontalOptions="FillAndExpand"
+                        Margin="3"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        IsVisible="false"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                Text="AIRLINE FILTRATION"
+                                TextColor="Gray"
+                                FontSize="Micro">
+                            </Label>
+                            <Frame
+                                HorizontalOptions="StartAndExpand"
+                                Padding="3"
+                                WidthRequest="70"
+                                CornerRadius="2"
+                                BorderColor="#ebebeb">
+                                <Label
+                                    x:Name="onewayarrivalfilter"
+                                    Text="Select Here"
+                                    FontSize="Micro"
+                                    TextColor="Gray">
+                                </Label>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="EndAndExpand">
+                            <Label
+                                Text="STOP FILTRATION"
+                                TextColor="Gray"
+                                FontSize="Micro">
+                            </Label>
+                            <Frame
+                                HorizontalOptions="EndAndExpand"
+                                Padding="3"
+                                WidthRequest="70"
+                                CornerRadius="2"
+                                BorderColor="#ebebeb">
+                                <Label
+                                    x:Name="onewaystopfilter"
+                                    Text="Select Here"
+                                    FontSize="Micro"
+                                    TextColor="Gray" />
+                            </Frame>
+                            <ListView
+                                SeparatorVisibility="Default"
+                                IsVisible="false"
+                                SeparatorColor="Gray"
+                                WidthRequest="60"
+                                x:Name="filteritems">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <ViewCell>
+                                            <controls:CheckBox
+                                                FontSize="12"
+                                                DefaultText="{Binding title}"
+                                                Checked="{Binding isChecked}"
+                                                CheckedChanged="Handle_PropertyChanged" />
+                                        </ViewCell>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView
+                        IsVisible="false"
+                        HeightRequest="1.5"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Vertical"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Horizontal"
+                            VerticalOptions="Center"
+                            HorizontalOptions="FillAndExpand">
+                            <fv:FlowListView
+                                Margin="5"
+                                RowHeight="20"
+                                HeightRequest="20"
+                                x:Name="radioflow"
+                                FlowColumnCount="2"
+                                SeparatorVisibility="None"
+                                HasUnevenRows="false"
+                                FlowUseAbsoluteLayoutInternally="true"
+                                FlowItemTapped="Handle_FlowItemTapped">
+                                <fv:FlowListView.FlowColumnTemplate>
+                                    <DataTemplate>
+                                        <StackLayout
+                                            Orientation="Horizontal"
+                                            BackgroundColor="White">
+                                            <Grid
+                                                HorizontalOptions="Start">
+                                                <Label
+                                                    VerticalOptions="Center"
+                                                    Text="○"
+                                                    FontSize="Small"
+                                                    TextColor="Red"
+                                                    VerticalTextAlignment="Center" />
+                                                <Label
+                                                    Text="●"
+                                                    FontSize="Small"
+                                                    TextColor="Red"
+                                                    VerticalOptions="Center"
+                                                    IsVisible="{Binding IsSelected}"
+                                                    VerticalTextAlignment="Center" />
+                                            </Grid>
+                                            <Label
+                                                VerticalOptions="Center"
+                                                TextColor="Gray"
+                                                Text="{Binding Title}"
+                                                FontSize="12"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalOptions="Start" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </fv:FlowListView.FlowColumnTemplate>
+                            </fv:FlowListView>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                x:Name="arrivallabel"
+                                Text="At What time you want to Arrive?     "
+                                VerticalOptions="Center"
+                                TextColor="Black"
+                                FontSize="Small"
+                                IsVisible="true" />
+                            <Label
+                                x:Name="departurelabel"
+                                VerticalOptions="Center"
+                                Text="At What time you want to Depart?     "
+                                TextColor="Black"
+                                FontSize="Small"
+                                IsVisible="false" />
+                            <Frame
+                                Padding="1"
+                                CornerRadius="2"
+                                VerticalOptions="Center"
+                                HorizontalOptions="CenterAndExpand"
+                                BorderColor="#ebebeb">
+
+                      <TimePicker
+                                x:Name="onewaytime"  
+                                TextColor="Gray" 
+                                Format="HH:mm" 
+                                   
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="StartAndExpand" /> 
+                          
+
+                            </Frame>
+                            <Frame
+                                Padding="1"
+                                IsVisible="false"
+                                CornerRadius="2"
+                                HorizontalOptions="EndAndExpand"
+                                BorderColor="#ebebeb">
+                                <TimePicker
+                                    FontSize="Micro"
+                                    TextColor="Black"
+                                    WidthRequest="70">
+                                </TimePicker>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <Button
+                        Margin="10"
+                        Clicked="Search_Clicked"
+                        BackgroundColor="Red"
+                        Text="Search"
+                        TextColor="White"
+                        CornerRadius="0"
+                        HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </ScrollView>
+            <ScrollView
+                Margin="10"
+                IsVisible="false"
+                x:Name="roundtrippage">
+                <StackLayout
+                    Margin="15"
+                    Orientation="Vertical">
+                    <Label
+                        Text="FROM"
+                        TextColor="Gray"
+                        FontSize="12" />
+                    <StackLayout
+                        HorizontalOptions="StartAndExpand"
+                        x:Name="roundfrom"
+                        Orientation="Horizontal">
+                        <Label
+                            Text="Mumbai"
+                            x:Name="roundfromfullname"
+                            BackgroundColor="Transparent"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                        <Label
+                            Margin="10,0,0,0"
+                            Text="BOM"
+                            x:Name="roundfromShortName"
+                            BackgroundColor="Transparent"
+                            TextColor="Gray"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                    </StackLayout>
+
+                 <BoxView Margin="3"
+             Color="#ebebeb"
+             HeightRequest="1"
+             HorizontalOptions="FillAndExpand"/>
+          <Image x:Name="imageflip" Source="flip.png" HorizontalOptions="EndAndExpand"  VerticalOptions="CenterAndExpand" Margin="0,-20,10,0" 
+                 HeightRequest="25" WidthRequest="25">
+    <Image.GestureRecognizers>
+        <TapGestureRecognizer
+                Tapped="OnImageNameTapped"
+                NumberOfTapsRequired="1"/>
+  </Image.GestureRecognizers>
+</Image>
+                    
+                    <Label
+                        Margin="0,5,0,0"
+                        Text="TO"
+                        TextColor="Gray"
+                        FontSize="12" />
+                    <StackLayout
+                        HorizontalOptions="StartAndExpand"
+                        x:Name="roundtostack"
+                        Orientation="Horizontal">
+                        <Label
+                            Text="Delhi"
+                            x:Name="roundtofullname"
+                            BackgroundColor="Transparent"
+                            TextColor="Black"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                        <Label
+                            Margin="10,0,0,0"
+                            Text="DEL"
+                            x:Name="roundtoShortName"
+                            BackgroundColor="Transparent"
+                            TextColor="Gray"
+                            FontAttributes="Bold"
+                            FontSize="Medium" />
+                    </StackLayout>
+              
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="DEPARTURE DATE"
+                                FontSize="12"
+                                TextColor="Gray">
+                            </Label>
+                            <StackLayout
+                                IsVisible="true"
+                                x:Name="rounddatelabel"
+                                Orientation="Horizontal">
+                                <Label
+                                    x:Name="rounddate"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    TextColor="Black" />
+                                <StackLayout
+                                    Margin="-5,0,0,0"
+                                    VerticalOptions="Center"
+                                    Orientation="Vertical">
+                                    <StackLayout
+                                        VerticalOptions="Center"
+                                        Orientation="Horizontal">
+                                        <Label
+                                            x:Name="roundmonth"
+                                            FontSize="Micro"
+                                            VerticalOptions="Center"
+                                            TextColor="Gray" />
+                                        <Label
+                                            x:Name="roundyear"
+                                            FontSize="Micro"
+                                            VerticalOptions="Center"
+                                            TextColor="Gray" />
+                                    </StackLayout>
+                                    <Label
+                                        x:Name="roundday"
+                                        Margin="0,-10,0,0"
+                                        FontSize="Micro"
+                                        TextColor="Silver" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Vertical"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="RETURN DATE"
+                                FontSize="12"
+                                TextColor="Gray">
+                            </Label>
+                            <StackLayout
+                                x:Name="roundreturndatelabel"
+                                IsVisible="true"
+                                Orientation="Horizontal">
+                                <Label
+                                    x:Name="roundreturndate"
+                                    VerticalOptions="Center"
+                                    FontAttributes="Bold"
+                                    FontSize="Large"
+                                    TextColor="Black" />
+                                <StackLayout
+                                    Margin="-5,0,0,0"
+                                    VerticalOptions="Center"
+                                    Orientation="Vertical">
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        VerticalOptions="Center">
+                                        <Label
+                                            x:Name="roundreturnmonth"
+                                            FontSize="Micro"
+                                            VerticalOptions="Center"
+                                            TextColor="Gray" />
+                                        <Label
+                                            x:Name="roundreturnyear"
+                                            FontSize="Micro"
+                                            VerticalOptions="Center"
+                                            TextColor="Gray" />
+                                    </StackLayout>
+                                    <Label
+                                        x:Name="roundreturnday"
+                                        Margin="0,-10,0,0"
+                                        FontSize="Micro"
+                                        TextColor="Silver" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView
+                        HeightRequest="1.5"
+                        Margin="3"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                Text="TRAVELLERS"
+                                FontSize="12"
+                                TextColor="Gray" />
+                            <Label
+                                x:Name="roundadultcount"
+                                Text="01 Adult"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="EndAndExpand">
+                            <Label
+                                Text="CABIN CLASS"
+                                FontSize="12"
+                                TextColor="Gray" />
+                            <Label
+                                x:Name="roundcabinclass"
+                                Text="Economy"
+                                FontSize="Medium"
+                                FontAttributes="Bold"
+                                TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                    <Grid
+                        IsVisible="false">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="12">
+                            </RowDefinition>
+                            <RowDefinition
+                                Height="40">
+                            </RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="ADULT"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="CHILD"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Text="INFANT"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            Text="CABIN CLASS"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Picker
+                            Title="0"
+                            BackgroundColor="Transparent"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            x:Name="roundadult"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>0</x:String>
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker
+                            BackgroundColor="Transparent"
+                            Title="0"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            x:Name="roundchild"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>0</x:String>
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker
+                            Title="0"
+                            BackgroundColor="Transparent"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            x:Name="roundinfant"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>0</x:String>
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker
+                            Title="Select Here"
+                            BackgroundColor="Transparent"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            x:Name="roundcabin"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>Economy</x:String>
+                                <x:String>Business</x:String>
+                                <x:String>First Class</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                    <BoxView
+                        HeightRequest="1.5"
+                        IsVisible="false"
+                        Margin="3"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        IsVisible="false"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                Text="AIRLINE FILTRATION"
+                                TextColor="Gray"
+                                FontSize="Micro">
+                            </Label>
+                            <Frame
+                                HorizontalOptions="StartAndExpand"
+                                Padding="1"
+                                CornerRadius="2"
+                                BorderColor="#ebebeb">
+                                <Picker
+                                    Title="Select Here"
+                                    FontSize="Micro"
+                                    TextColor="Black">
+                                </Picker>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="EndAndExpand">
+                            <Label
+                                Text="STOP FILTRATION"
+                                TextColor="Gray"
+                                FontSize="Micro">
+                            </Label>
+                            <Frame
+                                HorizontalOptions="EndAndExpand"
+                                Padding="1"
+                                CornerRadius="2"
+                                BorderColor="#ebebeb">
+                                <Picker
+                                    Title="Select Here"
+                                    FontSize="Micro"
+                                    TextColor="Black">
+                                </Picker>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView
+                        HeightRequest="1.5"
+                        Margin="3"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Vertical"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Horizontal"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <fv:FlowListView
+                                Margin="5"
+                                RowHeight="20"
+                                HeightRequest="20"
+                                x:Name="radioflowreturn"
+                                FlowColumnCount="2"
+                                SeparatorVisibility="None"
+                                HasUnevenRows="false"
+                                FlowUseAbsoluteLayoutInternally="true"
+                                FlowItemTapped="return_Handle_FlowItemTapped">
+                                <fv:FlowListView.FlowColumnTemplate>
+                                    <DataTemplate>
+                                        <StackLayout
+                                            Orientation="Horizontal"
+                                            BackgroundColor="White">
+                                            <Grid
+                                                HorizontalOptions="Start">
+                                                <Label
+                                                    VerticalOptions="Center"
+                                                    Text="○"
+                                                    FontSize="Small"
+                                                    TextColor="Red"
+                                                    VerticalTextAlignment="Center" />
+                                                <Label
+                                                    Text="●"
+                                                    FontSize="Small"
+                                                    TextColor="Red"
+                                                    VerticalOptions="Center"
+                                                    IsVisible="{Binding IsSelected}"
+                                                    VerticalTextAlignment="Center" />
+                                            </Grid>
+                                            <Label
+                                                TextColor="Gray"
+                                                Text="{Binding Title}"
+                                                FontSize="12"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalOptions="Start" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </fv:FlowListView.FlowColumnTemplate>
+                            </fv:FlowListView>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                x:Name="returnarrivallabel"
+                                VerticalOptions="Center"
+                                Text="At What time you want to Arrive?   "
+                                TextColor="Black"
+                                FontSize="Small"
+                                IsVisible="true" />
+                            <Label
+                                x:Name="returndeparturelabel"
+                                VerticalOptions="Center"
+                                Text="At What time you want to Depart?   "
+                                TextColor="Black"
+                                FontSize="Small"
+                                IsVisible="false" />
+                            <Frame
+                                Padding="1"
+                                CornerRadius="2"
+                                VerticalOptions="Center"
+                                BorderColor="#ebebeb">
+                       <TimePicker x:Name="roundtime" TextColor="Gray" Format="HH:mm"  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" /> 
+
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView
+                        HeightRequest="1.5"
+                        Margin="3"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Vertical"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Horizontal"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <fv:FlowListView
+                                Margin="5"
+                                RowHeight="20"
+                                HeightRequest="20"
+                                x:Name="radioflowreturntime"
+                                FlowColumnCount="2"
+                                SeparatorVisibility="None"
+                                HasUnevenRows="false"
+                                FlowUseAbsoluteLayoutInternally="true"
+                                FlowItemTapped="returntime_Handle_FlowItemTapped">
+                                <fv:FlowListView.FlowColumnTemplate>
+                                    <DataTemplate>
+                                        <StackLayout
+                                            Orientation="Horizontal"
+                                            BackgroundColor="White">
+                                            <Grid
+                                                HorizontalOptions="Start">
+                                                <Label
+                                                    VerticalOptions="Center"
+                                                    Text="○"
+                                                    FontSize="Small"
+                                                    TextColor="Red"
+                                                    VerticalTextAlignment="Center" />
+                                                <Label
+                                                    Text="●"
+                                                    FontSize="Small"
+                                                    TextColor="Red"
+                                                    VerticalOptions="Center"
+                                                    IsVisible="{Binding IsSelected}"
+                                                    VerticalTextAlignment="Center" />
+                                            </Grid>
+                                            <Label
+                                                TextColor="Gray"
+                                                Text="{Binding Title}"
+                                                FontSize="12"
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center"
+                                                HorizontalOptions="Start" />
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </fv:FlowListView.FlowColumnTemplate>
+                            </fv:FlowListView>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                x:Name="returntimearrivallabel"
+                                Text="At What time you want to Arrive?    "
+                                TextColor="Black"
+                                FontSize="Small"
+                                IsVisible="true"
+                                VerticalOptions="Center" />
+                            <Label
+                                x:Name="returntimedeparturelabel"
+                                VerticalOptions="Center"
+                                Text="At What time you want to Depart?    "
+                                TextColor="Black"
+                                FontSize="Small"
+                                IsVisible="false" />
+                            <Frame
+                                Padding="1"
+                                CornerRadius="2"
+                                VerticalOptions="Center"
+                                BorderColor="#ebebeb">
+              <TimePicker x:Name="roundreturntime" TextColor="Gray" Format="HH:mm"  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" /> 
+
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <Button
+                        Clicked="Round_Search_Clicked"
+                        Margin="5"
+                        BackgroundColor="Red"
+                        Text="Search"
+                        TextColor="White"
+                        CornerRadius="0"
+                        HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </ScrollView>
+            <ScrollView
+                Margin="10"
+                IsVisible="false"
+                x:Name="multipage">
+                <StackLayout
+                    Margin="15"
+                    Orientation="Vertical">
+                    <Label
+                        Text="FROM"
+                        TextColor="Gray"
+                        FontSize="Small"
+                        FontAttributes="Bold" />
+                    <Entry
+                        TextColor="Black"
+                        FontAttributes="Bold"
+                        FontSize="Large" />
+                    <ListView
+                        x:Name="multifrom">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label
+                                        Text="{Binding PlaceName}"
+                                        FontSize="Micro"
+                                        TextColor="Gray" />
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <Label
+                        Text="TO"
+                        TextColor="Gray"
+                        FontSize="Micro"
+                        FontAttributes="Bold" />
+                    <Picker
+                        x:Name="multito"
+                        Title="Select To"
+                        FontSize="Small"
+                        TextColor="Black">
+                        <Picker.Items>
+                            <x:String>
+                            Delhi DEL
+                        </x:String>
+                            <x:String>
+                           Mumbai BOM
+                        </x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            HorizontalOptions="StartAndExpand"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="DEPARTURE DATE"
+                                FontSize="Micro"
+                                TextColor="Gray">
+                            </Label>
+                            <DatePicker
+                                TextColor="Black" />
+                            <StackLayout
+                                IsVisible="false"
+                                Orientation="Horizontal">
+                                <Label
+                                    x:Name="multidate"
+                                    Text="{Binding Date}"
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    TextColor="Black" />
+                                <StackLayout
+                                    Margin="-5,0,0,0"
+                                    Orientation="Vertical">
+                                    <Label
+                                        x:Name="multimonthyear"
+                                        Text="{Binding MonthYear}"
+                                        FontSize="Micro"
+                                        TextColor="Gray" />
+                                    <Label
+                                        x:Name="multiday"
+                                        Margin="0,-10,0,0"
+                                        Text="{Binding Day}"
+                                        FontSize="Micro"
+                                        TextColor="Silver" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Vertical"
+                            HorizontalOptions="EndAndExpand"
+                            VerticalOptions="Center">
+                            <Label
+                                Text="RETURN"
+                                FontSize="Micro"
+                                TextColor="Gray">
+                            </Label>
+                            <DatePicker
+                                TextColor="Black" />
+                            <StackLayout
+                                Orientation="Horizontal"
+                                IsVisible="false">
+                                <Label
+                                    x:Name="multireturndate"
+                                    Text="{Binding Date}"
+                                    FontAttributes="Bold"
+                                    FontSize="Small"
+                                    TextColor="Black" />
+                                <StackLayout
+                                    Margin="-5,0,0,0"
+                                    Orientation="Vertical">
+                                    <Label
+                                        x:Name="multireturnmonthyear"
+                                        Text="{Binding MonthYear}"
+                                        FontSize="Micro"
+                                        TextColor="Gray" />
+                                    <Label
+                                        x:Name="multireturnday"
+                                        Margin="0,-10,0,0"
+                                        Text="{Binding Day}"
+                                        FontSize="Micro"
+                                        TextColor="Silver" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout
+                            VerticalOptions="Center"
+                            BackgroundColor="Green"
+                            Margin="2"
+                            Orientation="Vertical"
+                            HorizontalOptions="Center">
+                            <Label
+                                BackgroundColor="Green"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="+"
+                                TextColor="White"
+                                FontSize="Medium"
+                                FontAttributes="Bold" />
+                            <Label
+                                BackgroundColor="Green"
+                                HorizontalOptions="CenterAndExpand"
+                                Text="ADD"
+                                TextColor="White"
+                                FontSize="Small"
+                                FontAttributes="Bold"
+                                Margin="2,-10,2,2" />
+                        </StackLayout>
+                    </StackLayout>
+                    <BoxView
+                        HeightRequest="1.5"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                            <ColumnDefinition
+                                Width="*">
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition
+                                Height="*">
+                            </RowDefinition>
+                            <RowDefinition
+                                Height="*">
+                            </RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Text="ADULT"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Text="CHILD"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Text="INFANT"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            Text="CABIN CLASS"
+                            FontSize="Micro"
+                            TextColor="Gray" />
+                        <Picker
+                            Title="0"
+                            Margin="0,-5,0,0"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            x:Name="multiadult"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>0</x:String>
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker
+                            Title="0"
+                            Margin="0,-5,0,0"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            x:Name="multichild"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>0</x:String>
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker
+                            Title="0"
+                            Margin="0,-5,0,0"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            x:Name="multiinfant"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>0</x:String>
+                                <x:String>1</x:String>
+                                <x:String>2</x:String>
+                                <x:String>3</x:String>
+                                <x:String>4</x:String>
+                                <x:String>5</x:String>
+                                <x:String>6</x:String>
+                                <x:String>7</x:String>
+                                <x:String>8</x:String>
+                                <x:String>9</x:String>
+                            </Picker.Items>
+                        </Picker>
+                        <Picker
+                            Margin="0,-5,0,0"
+                            Title="Select here"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            x:Name="multicabin"
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Black">
+                            <Picker.Items>
+                                <x:String>Economy</x:String>
+                                <x:String>Business</x:String>
+                                <x:String>First Class</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </Grid>
+                    <BoxView
+                        HeightRequest="1.5"
+                        IsVisible="false"
+                        HorizontalOptions="FillAndExpand"
+                        Color="#ebebeb" />
+                    <StackLayout
+                        Orientation="Horizontal"
+                        IsVisible="false"
+                        HorizontalOptions="FillAndExpand">
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="StartAndExpand">
+                            <Label
+                                Text="SPECIAL FARE FILTRATION"
+                                TextColor="Gray"
+                                FontSize="Micro">
+                            </Label>
+                            <StackLayout
+                                Orientation="Horizontal">
+                                <controls:CheckBox
+                                    FontSize="12"
+                                    DefaultText="LCC"
+                                    Checked="false"
+                                    x:Name="lcc" />
+                                <controls:CheckBox
+                                    FontSize="12"
+                                    DefaultText="FSC"
+                                    Checked="false"
+                                    x:Name="fsc" />
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout
+                            Orientation="Vertical"
+                            VerticalOptions="Center"
+                            HorizontalOptions="EndAndExpand">
+                            <Label
+                                Text="STOP FILTRATION"
+                                TextColor="Gray"
+                                FontSize="Micro">
+                            </Label>
+                            <Frame
+                                HorizontalOptions="EndAndExpand"
+                                Padding="1"
+                                CornerRadius="0"
+                                BorderColor="Gray">
+                                <Picker
+                                    Title="Select Here"
+                                    FontSize="Micro"
+                                    TextColor="Black">
+                                </Picker>
+                            </Frame>
+                        </StackLayout>
+                    </StackLayout>
+                    <Frame
+                        Margin="5,-5,0,0"
+                        BorderColor="Gray"
+                        Padding="2"
+                        CornerRadius="0"
+                        WidthRequest="60"
+                        HorizontalOptions="StartAndExpand">
+                        <Label
+                            Margin="2"
+                            Text="EX :- 6E,9W"
+                            TextColor="Gray"
+                            FontSize="Micro" />
+                    </Frame>
+                    <Button
+                        Margin="5"
+                        BackgroundColor="Red"
+                        Text="Search"
+                        TextColor="White"
+                        CornerRadius="0"
+                        HorizontalOptions="CenterAndExpand" />
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pages:PopupPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    x:Class="FLightsApp.Pages.DetailsPopUp">
+    <StackLayout
+        Orientation="Vertical">
+        <StackLayout
+            Margin="5"
+            x:Name="mainstack"
+            BackgroundColor="White"
+            Orientation="Vertical"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand"
+            WidthRequest="350"
+             >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="Red" >
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" BackgroundColor="Red">
+                 <Label
+                            Text=""
+                            x:Name="from"
+                            TextColor="White"
+                            FontSize="Small" VerticalOptions="Center"
+                            FontAttributes="Bold" />
+                        <Image
+                            VerticalOptions="Center"
+                        IsVisible="false"
+                            Source="frontarrow.png"
+                        x:Name="imgarrow"
+                           />
+                        <Label
+                            VerticalOptions="Center"
+                            Text=""
+                            TextColor="White"
+                            x:Name="stop"
+                            FontSize="Small"
+                            FontAttributes="Bold" />
+                        <Image
+                            VerticalOptions="Center"
+                        IsVisible="false"
+                        x:Name="imgarrow1"
+                            Source="frontarrow.png" />
+                        <Label
+                            Text=""
+                            VerticalOptions="Center"
+                            x:Name="to"
+                            TextColor="White"
+                            FontSize="Small"
+                            FontAttributes="Bold" />
+            </StackLayout></StackLayout>
+     <ListView x:Name="flightdetailslist" HasUnevenRows="true" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Margin="5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label VerticalOptions="Center" Text="{Binding FromAirportFullName}" FontSize="Small" TextColor="Red"/>
+                                        <Image Source="Arrow_right.png" VerticalOptions="Center" />
+                                        <Label VerticalOptions="Center" Text="{Binding ToAirportFullName}" FontSize="Small" TextColor="Red"/>
+                                   </StackLayout>
+                                 <StackLayout Orientation="Horizontal">
+                                   
+                                        <Image Source="{Binding IconPath}" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                     <Label HorizontalOptions="Start" VerticalOptions="Center" Text="{Binding AirlineCode}" FontSize="12" TextColor="Black" FontAttributes="Bold"/>
+                                        <Label HorizontalOptions="StartAndExpand" VerticalOptions="Center" Text="{Binding FlightNo}" FontSize="12" TextColor="Black" FontAttributes="Bold"/>
+                                    <Label Text="DURATION :" FontSize="13" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                                    <Label Text="{Binding FlightTime}" TextColor="Gray" FontSize="13" HorizontalOptions="End" />
+                                   </StackLayout>
+                               <StackLayout Orientation="Horizontal">
+                                   
+                                    <Label Text="DEPARTURE :" FontSize="13" TextColor="Black" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding DeptTimeDate}" TextColor="Gray" FontSize="13" HorizontalOptions="StartAndExpand" />
+                                    <Label Text="ARRIVAL :" FontSize="13" TextColor="Black" HorizontalOptions="EndAndExpand"/>
+                                    <Label Text="{Binding ArrTimeDate}" TextColor="Gray" FontSize="13" HorizontalOptions="End" />
+                                    
+                                   </StackLayout> 
+                                <StackLayout Orientation="Horizontal" >
+                                    <Label Margin="85,0,0,0" Text="{Binding FromTerminal}" TextColor="Gray" FontSize="13" HorizontalOptions="StartAndExpand"></Label>
+                                    <Label Margin="0,0,20,0" Text="{Binding ToTerminal}" TextColor="Gray" FontSize="13" HorizontalOptions="EndAndExpand"></Label>
+
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                 <Label Text="{Binding WaitingTime}" TextColor="Gray" FontSize="13" HorizontalOptions="CenterAndExpand" />
+                               
+                                    
+                                </StackLayout>
+                                </StackLayout>
+                        
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+              <Image
+                x:Name="close"
+                Source="cross.png"
+                VerticalOptions="EndAndExpand"
+                HorizontalOptions="CenterAndExpand"
+            HeightRequest="35" WidthRequest="35"
+                Margin="5">
+            </Image>
+            </StackLayout>
+          
+     
+       
+    </StackLayout>
+</pages:PopupPage>
